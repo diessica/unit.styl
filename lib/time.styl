@@ -1,0 +1,10 @@
+sec(x, leadingzero = false)
+  if unit(x) is 'ms'
+    if !leadingzero
+      unit(remove-unit(x) / 1000, 's');
+    else
+      s('.%s', remove-unit(x)) + 's';
+
+millisec(x)
+  if unit(x) is 's'
+     unit(remove-unit(x) * 1000, 'ms');
