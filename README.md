@@ -1,4 +1,4 @@
-# stylus-unit
+# unit.styl
 > Conversions of relative or absolute units - such as units of length (**px**, **rem**), angles (**rad**, **turn**), resolution (**dpi**, **dpcm**), time (**ms**, **s**) - made easy. 
 
 --
