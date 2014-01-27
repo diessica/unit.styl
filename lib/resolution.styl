@@ -1,19 +1,17 @@
-value = remove-unit(x); // raw value
-
 dpi(x)
    if unit(x) is 'dppx'
-      unit(96 / value, 'dpi');
+      unit(96 / remove-unit(x), 'dpi');
    else if unit(x) is 'dpcm'
-      unit(value * 2/5, 'dpi');
+      unit(remove-unit(x) * 2/5, 'dpi');
 
 dpcm(x)
    if unit(x) is 'dppx' 
-      unit(value * 38.4, 'dpcm');
+      unit(remove-unit(x) * 38.4, 'dpcm');
    else if unit(x) is 'dpi'
-      unit(value * 2/5, 'dpcm');
+      unit(remove-unit(x) * 2/5, 'dpcm');
 
 dppx(x)
    if unit(x) is 'dpi' 
-      unit(96 / value, 'dppx');
+      unit(96 / remove-unit(x), 'dppx');
    else if unit(x) is 'dpcm'
-      unit(value / 38.4, 'dppx');
+      unit(remove-unit(x) / 38.4, 'dppx');
