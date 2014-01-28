@@ -1,56 +1,81 @@
 # unit.styl
-> Conversions of relative or absolute units - such as units of length (**px**, **rem**), angles (**rad**, **turn**), resolution (**dpi**, **dpcm**), time (**ms**, **s**) - made easy. 
+> ...makes it easy to convert relative and absolute units. Use the unit of your choice and don't worry about it. 
 
---
 1. **Clone**: `git clone https://github.com/diessicode/stylus-unit.git`
 2. **Import**. Example: `@import "lib/unit.styl"`
 
-Do you want **specific libs**? Raw: [**`dimension.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/dimension.styl) | [**`angle.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/angle.styl) | [**`time.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/time.styl) | [**`resolution.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/resolution.styl).
+You want something in particular? Raw: [**`dimension.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/dimension.styl) | [**`angle.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/angle.styl) | [**`time.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/time.styl) | [**`resolution.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/resolution.styl).
 
 ## samples
-#### ⇒ absolute or relative? whatever!
-Converting absolute units: 
-```css
-.foo { height: px(12pt) }  /* height: 16px; */ 
-```
+#### → relative ⇔ absolute
+With **unit.styl**, relative units can be absolute and absolute units can be relative! :-)
 
-Converting relative units: 
+> A context is **required**  for relative units (`rem`, `%`). Only conversions between `px` ⇔ `pt` don't require context.
 
-> A context is **required**  for relative units. Assuming that `context = 100%` (16px, by default): 
-
+###### EXAMPLE 1 (no context needed)
 ```css
 .foo {
-   width: px(8rem)        /* width: 128px; */
-   font-size: px(50%)     /* font-size: 8px; */
-}
+  width:     pt(500px);       /*  width: 375pt; */ 
+  height:    px(12pt);        /*  height: 16px;  */ 
+}  
 ```
 
-> Assuming that `context = 62.5%` (10px):
-
+###### EXAMPLE 2
 ```css
+context = 100%;
+
 .foo {
-   width: px(20rem)      /* width: 200px;  */
-   font-size: px(1rem)   /* font-size: 10px; */
-}
+  width:     rem(960px);      /*  height: 60rem;   */ 
+  height:    pct(3pt);        /*  height: 25%;     */ 
+  font-size: px(1rem);        /*  font-size: 16px; */
+}  
 ```
 
-#### ⇒ angle
-```css
-.bar {
-   transform: rotateY(deg(0.5turn)) rotateX(rad(200grad)); 
-/* transform: rotateY(180deg)       rotateX(3.14rad); */
-}
-```
+###### EXAMPLE 3 
 
-#### ⇒ time
 ```css
+context = 62.5%;
+
 .foo {
-   transition-duration: sec(5000ms, true); /* transition-duration: .5s; */
+   width:     px(8rem)        /*  width: 128px;  */
+   height:    rem(16px)       /*  height: 1rem;  */
+   font-size: pct(5px)        /*  font-size: 80; */
 }
+```
+**Tip**: You can do fallbacks for IE to `rem` unit printing the results in pixels too, e.g. `px(1.5rem)`
+
+--
+
+#### → angles: `deg` ⇔ `rad` ⇔ `turn` ⇔ `grad`
+
+###### EXAMPLE 1
+```css
+transform: rotateY(deg(0.5turn));         /* transform: rotateY(180deg) */
 ```
 
+###### EXAMPLE 2
 ```css
-.bar {
-   transition-duration: millisec(1s);      /* transition-duration: 500ms */
-}
+transform: rotateX(rad(200grad));         /* transform: rotateX(3.14rad); */
 ```
+
+--
+
+#### → time: `ms` ⇔ `s`
+
+###### EXAMPLE 1
+```css
+transition-duration: millisec(1s);         /* transition-duration: 500ms */
+```
+
+###### EXAMPLE 2
+```css
+transition-duration: sec(5000ms);          /* transition-duration: 0.5s; */
+```
+> `sec()` takes a second parameter: `leadingzero`, a optional boolean - `true` by default. If `false`, leading zero is omitted.
+
+```css
+transition-duration: sec(5000ms, false);   /* transition-duration: .5s; */
+```
+
+-----------
+Licensed under **[MIT](http://opensource.org/licenses/MIT)**.
