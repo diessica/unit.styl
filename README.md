@@ -1,7 +1,7 @@
 # unit.styl
 > ...makes it easy to convert relative and absolute units. Use the unit of your choice and don't worry about it. 
 
-1. **Clone**: `git clone https://github.com/diessicode/stylus-unit.git`
+1. **Clone**: `git clone https://github.com/diessicode/unit.styl.git`
 2. **Import**. Example: `@import "lib/unit.styl"`
 
 You want something in particular? Raw: [**`dimension.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/dimension.styl) | [**`angle.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/angle.styl) | [**`time.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/time.styl) | [**`resolution.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/resolution.styl).
