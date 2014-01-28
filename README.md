@@ -4,7 +4,7 @@
 1. **Clone**: `git clone https://github.com/diessicode/unit.styl.git`
 2. **Import**. Example: `@import "lib/unit.styl"`
 
-You want something in particular? Raw: [**`length.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/dimension.styl) | [**`angle.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/angle.styl) | [**`time.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/time.styl)
+You want something in particular? Raw: [**`length.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/length.styl) | [**`angle.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/angle.styl) | [**`time.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/time.styl)
 
 ## samples
 #### → relative ⇔ absolute
@@ -37,9 +37,9 @@ context = 100%;
 context = 62.5%;
 
 .foo {
-   width:     px(8rem)        /*  width: 128px;  */
-   height:    rem(16px)       /*  height: 1rem;  */
-   font-size: pct(5px)        /*  font-size: 80; */
+   width:     px(8rem)        /*  width: 80px;  */
+   height:    rem(10px)       /*  height: 1rem;  */
+   font-size: pct(5px)        /*  font-size: 50%; */
 }
 ```
 **Tip**: You can do fallbacks for IE to `rem` unit printing the results in pixels too, e.g. `px(1.5rem)`
