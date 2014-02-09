@@ -8,7 +8,7 @@ You want something in particular? Raw: [**`length.styl`**](https://raw.github.co
 
 ## samples
 #### → relative ⇔ absolute
-With **unit.styl**, relative units can be absolute and absolute units can be relative! :-)
+Relative units can be absolute and absolute units can be relative! :-)
 
 > A context is **required**  for relative units (`rem`, `%`). Only conversions between `px` ⇔ `pt` don't require context.
 
