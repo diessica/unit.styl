@@ -1,20 +1,20 @@
 // convert any unit of resolution to dpi
 dpi(x)
    if unit(x) is 'dppx'
-      unit(96 / remove-unit(x), 'dpi');
+      unit(96 / x, 'dpi');
    else if unit(x) is 'dpcm'
-      unit(remove-unit(x) * 2/5, 'dpi');
+      unit(x * 2/5, 'dpi');
 
 // convert any unit of resolution to dpcm
 dpcm(x)
    if unit(x) is 'dppx' 
-      unit(remove-unit(x) * 38.4, 'dpcm');
+      unit(x * 38.4, 'dpcm');
    else if unit(x) is 'dpi'
-      unit(remove-unit(x) * 2/5, 'dpcm');
+      unit(x * 2/5, 'dpcm');
 
 // convert any unit of resolution to dppx
 dppx(x)
    if unit(x) is 'dpi' 
-      unit(96 / remove-unit(x), 'dppx');
+      unit(96 / x, 'dppx');
    else if unit(x) is 'dpcm'
-      unit(remove-unit(x) / 38.4, 'dppx');
+      unit(x / 38.4, 'dppx');
