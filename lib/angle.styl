@@ -4,35 +4,35 @@ PI = 3.14;
 // convert any angle unit to radian
 rad(x) 
   if unit(x)  is 'deg'
-    unit(remove-unit(x) * PI/180, 'rad');
+    unit(x * PI/180, 'rad');
   else if unit(x)  is 'turn' 
-    unit(remove-unit(x) * 2*PI, 'rad');
+    unit(x * 2*PI, 'rad');
   else if unit(x)  is 'grad' 
-    unit(remove-unit(x) * PI/200, 'rad');
+    unit(x * PI/200, 'rad');
   
 // convert any angle unit to degree
 deg(x)
   if unit(x) is 'rad'
-    unit(remove-unit(x) * 180/PI, 'deg'); 
+    unit(x * 180/PI, 'deg'); 
   else if unit(x)  is 'turn' 
-    unit(remove-unit(x) * 360, 'deg');
+    unit(x * 360, 'deg');
   else if unit(x)  is 'grad' 
-    unit(remove-unit(x) * 9/10, 'deg');
+    unit(x * 9/10, 'deg');
     
 // convert any angle unit to turn
 turn(x)
   if unit(x) is 'rad'
-    unit(remove-unit(x) / PI, 'turn'); 
+    unit(x / PI, 'turn'); 
   else if unit(x) is 'deg' 
-    unit(remove-unit(x) / 360, 'turn');
+    unit(x / 360, 'turn');
   else if unit(x) is 'grad' 
-    unit(remove-unit(x) / 400, 'turn');
+    unit(x / 400, 'turn');
     
 // convert any angle unit to gradian
 grad(x)
   if unit(x) is 'rad'
-    unit(remove-unit(x) * 200/PI, 'grad'); 
+    unit(x * 200/PI, 'grad'); 
   else if unit(x)  is 'deg' 
-    unit(remove-unit(x) * 10/9, 'grad');
-  else if unit(x)  is 'turn' 
-    unit(remove-unit(x) * 400, 'grad');
+    unit(x * 10/9, 'grad');
+  else if unit(x)  isx 'turn' 
+    unit(x * 400, 'grad');
