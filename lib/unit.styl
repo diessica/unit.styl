@@ -6,38 +6,38 @@ context = 100%;
 // convert relative or absolute unit to px
 px(x)
   if unit(x) is 'rem'
-    unit(remove-unit(x) * (context * 4/25), 'px');
+    unit(x * (context * 4/25), 'px');
   else if unit(x) is '%'
-    unit(remove-unit(x) * (context * 4/25) / 100, 'px'); 
+    unit(x * (context * 4/25) / 100, 'px'); 
   else if unit(x) is 'pt'
-    unit(remove-unit(x) * 4/3 , 'px');
+    unit(x * 4/3 , 'px');
 
 // convert relative or absolute unit to rem
 rem(x)
   if unit(x) is 'px'
-    unit(remove-unit(x) / (context * 4/25), 'rem');
+    unit(x / (context * 4/25), 'rem');
   else if unit(x) is '%'
-    unit(remove-unit(x) / context, 'rem'); 
+    unit(x / context, 'rem'); 
   else if unit(x) is 'pt'
-    unit(remove-unit(x) / (context * 4/25), 'rem');
+    unit(x / (context * 4/25), 'rem');
 
 // convert relative or absolute unit to percent
 pct(x)
   if unit(x) is 'px'
-    unit(remove-unit(x) / (context * 4/25) * 100, '%');
+    unit(x / (context * 4/25) * 100, '%');
   else if unit(x) is 'rem'
-    unit(remove-unit(x) * context, '%'); 
+    unit(x * context, '%'); 
   else if unit(x) is 'pt'
-    unit(remove-unit(x) * 100 / (context * 3/25), '%'); 
+    unit(x * 100 / (context * 3/25), '%'); 
 
 // convert relative or absolute unit to pt
 pt(x)
   if unit(x) is 'px'
-    unit(remove-unit(x) * 3/4, 'pt');
+    unit(x * 3/4, 'pt');
   else if unit(x) is 'rem'
-    unit(remove-unit(x) * (context * 3/25), 'pt');
+    unit(x * (context * 3/25), 'pt');
   else if unit(x) is '%'
-    unit(remove-unit(x) / 100 * (context * 3/25), 'pt');
+    unit(x / 100 * (context * 3/25), 'pt');
 
 // Angle                                  
 //-----------------------------------------
@@ -47,38 +47,133 @@ PI = 3.14;
 // convert any angle unit to radian
 rad(x) 
   if unit(x)  is 'deg'
-    unit(remove-unit(x) * PI/180, 'rad');
+    unit(x * PI/180, 'rad');
   else if unit(x)  is 'turn' 
-    unit(remove-unit(x) * 2*PI, 'rad');
+    unit(x * 2*PI, 'rad');
   else if unit(x)  is 'grad' 
-    unit(remove-unit(x) * PI/200, 'rad');
+    unit(x * PI/200, 'rad');
   
 // convert any angle unit to degree
 deg(x)
   if unit(x) is 'rad'
-    unit(remove-unit(x) * 180/PI, 'deg'); 
+    unit(x * 180/PI, 'deg'); 
   else if unit(x)  is 'turn' 
-    unit(remove-unit(x) * 360, 'deg');
+    unit(x * 360, 'deg');
   else if unit(x)  is 'grad' 
-    unit(remove-unit(x) * 9/10, 'deg');
+    unit(x * 9/10, 'deg');
     
 // convert any angle unit to turn
 turn(x)
   if unit(x) is 'rad'
-    unit(remove-unit(x) / PI, 'turn'); 
+    unit(x / PI, 'turn'); 
   else if unit(x) is 'deg' 
-    unit(remove-unit(x) / 360, 'turn');
+    unit(x / 360, 'turn');
   else if unit(x) is 'grad' 
-    unit(remove-unit(x) / 400, 'turn');
+    unit(x / 400, 'turn');
     
 // convert any angle unit to gradian
 grad(x)
   if unit(x) is 'rad'
-    unit(remove-unit(x) * 200/PI, 'grad'); 
+    unit(x * 200/PI, 'grad'); 
   else if unit(x)  is 'deg' 
-    unit(remove-unit(x) * 10/9, 'grad');
+    unit(x * 10/9, 'grad');
   else if unit(x)  is 'turn' 
-    unit(remove-unit(x) * 400, 'grad');
+    unit(x * 400, 'grad');
+
+// Time
+//-----------------------------------------
+// convert millisecond to second, with leading zeros or not
+sec(x, leadingzero = true)
+  if unit(x) is 'ms'
+    if !leadingzero
+      s('.%s', x) + 's';
+    else
+      unit(x / 1000, 's');
+
+// convert second to millisecond
+millisec(x)
+  if unit(x) is 's'
+     unit(x * 1000, 'ms');// Length
+//-----------------------------------------
+// set the context for relative units
+context = 100%;
+
+// convert relative or absolute unit to px
+px(x)
+  if unit(x) is 'rem'
+    unit(x * (context * 4/25), 'px');
+  else if unit(x) is '%'
+    unit(x * (context * 4/25) / 100, 'px'); 
+  else if unit(x) is 'pt'
+    unit(x * 4/3 , 'px');
+
+// convert relative or absolute unit to rem
+rem(x)
+  if unit(x) is 'px'
+    unit(x / (context * 4/25), 'rem');
+  else if unit(x) is '%'
+    unit(x / context, 'rem'); 
+  else if unit(x) is 'pt'
+    unit(x / (context * 4/25), 'rem');
+
+// convert relative or absolute unit to percent
+pct(x)
+  if unit(x) is 'px'
+    unit(x / (context * 4/25) * 100, '%');
+  else if unit(x) is 'rem'
+    unit(x * context, '%'); 
+  else if unit(x) is 'pt'
+    unit(x * 100 / (context * 3/25), '%'); 
+
+// convert relative or absolute unit to pt
+pt(x)
+  if unit(x) is 'px'
+    unit(x * 3/4, 'pt');
+  else if unit(x) is 'rem'
+    unit(x * (context * 3/25), 'pt');
+  else if unit(x) is '%'
+    unit(x / 100 * (context * 3/25), 'pt');
+
+// Angle                                  
+//-----------------------------------------
+// less precision than the default value
+PI = 3.14;
+
+// convert any angle unit to radian
+rad(x) 
+  if unit(x)  is 'deg'
+    unit(x * PI/180, 'rad');
+  else if unit(x)  is 'turn' 
+    unit(x * 2*PI, 'rad');
+  else if unit(x)  is 'grad' 
+    unit(x * PI/200, 'rad');
+  
+// convert any angle unit to degree
+deg(x)
+  if unit(x) is 'rad'
+    unit(x * 180/PI, 'deg'); 
+  else if unit(x)  is 'turn' 
+    unit(x * 360, 'deg');
+  else if unit(x)  is 'grad' 
+    unit(x * 9/10, 'deg');
+    
+// convert any angle unit to turn
+turn(x)
+  if unit(x) is 'rad'
+    unit(x / PI, 'turn'); 
+  else if unit(x) is 'deg' 
+    unit(x / 360, 'turn');
+  else if unit(x) is 'grad' 
+    unit(x / 400, 'turn');
+    
+// convert any angle unit to gradian
+grad(x)
+  if unit(x) is 'rad'
+    unit(x * 200/PI, 'grad'); 
+  else if unit(x)  is 'deg' 
+    unit(x * 10/9, 'grad');
+  else if unit(x)  is 'turn' 
+    unit(x * 400, 'grad');
 
 // Time
 //-----------------------------------------
@@ -88,9 +183,9 @@ sec(x, leadingzero = true)
     if !leadingzero
       s('.%s', remove-unit(x)) + 's';
     else
-      unit(remove-unit(x) / 1000, 's');
+      unit(x / 1000, 's');
 
 // convert second to millisecond
 millisec(x)
   if unit(x) is 's'
-     unit(remove-unit(x) * 1000, 'ms');
+     unit(x * 1000, 'ms');
