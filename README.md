@@ -78,4 +78,4 @@ transition-duration: sec(5000ms, false);   /* transition-duration: .5s; */
 ```
 
 -----------
-Licensed under **[MIT](http://opensource.org/licenses/MIT)**.
+Licensed under **[MIT](http://diessica.mit-license.org)**.
