@@ -77,5 +77,8 @@ transition-duration: sec(5000ms);          /* transition-duration: 0.5s; */
 transition-duration: sec(5000ms, false);   /* transition-duration: .5s; */
 ```
 
------------
-Licensed under **[MIT](http://diessica.mit-license.org)**.
+---
+
+###### LICENSE
+
+[MIT](http://diessica.mit-license.org/) © [Diéssica Gurskas](http://diessi.ca)
