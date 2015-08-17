@@ -1,12 +1,43 @@
 # unit.styl
-> ...makes it easy to convert relative and absolute units. Use the unit of your choice and don't worry about it. 
+> ...makes it easy to convert relative and absolute units. Use the unit of your choice and don't worry about it.
 
-1. **Clone**: `git clone https://github.com/diessicode/unit.styl.git`
-2. **Import**. Example: `@import "lib/unit.styl"`
+## getting started
 
-You want something in particular? Raw: [**`length.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/length.styl) | [**`angle.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/angle.styl) | [**`time.styl`**](https://raw.github.com/diessicode/stylus-unit/master/lib/time.styl)
+Just clone or download this project, or...
 
-## samples
+### [npm](http://npmjs.com)
+> `--save` or `--save-dev` flags are recommended.
+
+```sh
+$ npm install unit-styl
+```
+
+#### JavaScript API
+```javascript
+var stylus = require('stylus');
+var unit   = require('unit-styl');
+
+function compile(str) {
+  return stylus(str)
+    .use(unit());
+}
+```
+
+#### Stylus API
+```stylus
+@import 'unit'
+```
+
+You can also import individual parts, depending on what you need:
+```stylus
+@import 'unit/_angle'
+@import 'unit/_length'
+@import 'unit/_resolution'
+@import 'unit/_time'
+```
+
+
+## usage
 #### → relative ⇔ absolute
 Relative units can be absolute and absolute units can be relative! :-)
 
@@ -15,8 +46,8 @@ Relative units can be absolute and absolute units can be relative! :-)
 ###### EXAMPLE 1 (no context needed)
 ```css
 .foo {
-  width:     pt(500px);       /*  width: 375pt; */ 
-  height:    px(12pt);        /*  height: 16px;  */ 
+  width:     pt(500px);       /*  width: 375pt; */
+  height:    px(12pt);        /*  height: 16px;  */
 }  
 ```
 
@@ -25,13 +56,13 @@ Relative units can be absolute and absolute units can be relative! :-)
 context = 100%;
 
 .foo {
-  width:     rem(960px);      /*  height: 60rem;   */ 
-  height:    pct(3pt);        /*  height: 25%;     */ 
+  width:     rem(960px);      /*  height: 60rem;   */
+  height:    pct(3pt);        /*  height: 25%;     */
   font-size: px(1rem);        /*  font-size: 16px; */
 }  
 ```
 
-###### EXAMPLE 3 
+###### EXAMPLE 3
 
 ```css
 context = 62.5%;
@@ -71,7 +102,7 @@ transition-duration: millisec(1s);         /* transition-duration: 500ms */
 ```css
 transition-duration: sec(5000ms);          /* transition-duration: 0.5s; */
 ```
-> `sec()` takes a second parameter: `leadingzero`, a optional boolean - `true` by default. If `false`, leading zero is omitted.
+> `sec()` takes a second parameter: `leadingzero`, an optional boolean - `true` by default. If `false`, leading zero is omitted.
 
 ```css
 transition-duration: sec(5000ms, false);   /* transition-duration: .5s; */

@@ -1,34 +1,34 @@
-// set the context for relative units
+// Set the context for relative units
 context = 100%;
 
-// convert relative or absolute unit to px
+// Convert relative or absolute unit to px
 px(x)
   if unit(x) is 'rem'
     unit(x * (context * 4/25), 'px');
   else if unit(x) is '%'
-    unit(x * (context * 4/25) / 100, 'px'); 
+    unit(x * (context * 4/25) / 100, 'px');
   else if unit(x) is 'pt'
     unit(x * 4/3 , 'px');
 
-// convert relative or absolute unit to rem
+// Convert relative or absolute unit to rem
 rem(x)
   if unit(x) is 'px'
     unit(x / (context * 4/25), 'rem');
   else if unit(x) is '%'
-    unit(x / context, 'rem'); 
+    unit(x / context, 'rem');
   else if unit(x) is 'pt'
     unit(x / (context * 4/25), 'rem');
 
-// convert relative or absolute unit to percent
+// Convert relative or absolute unit to percent
 pct(x)
   if unit(x) is 'px'
     unit(x / (context * 4/25) * 100, '%');
   else if unit(x) is 'rem'
-    unit(x * context, '%'); 
+    unit(x * context, '%');
   else if unit(x) is 'pt'
-    unit(x * 100 / (context * 3/25), '%'); 
+    unit(x * 100 / (context * 3/25), '%');
 
-// convert relative or absolute unit to pt
+// Convert relative or absolute unit to pt
 pt(x)
   if unit(x) is 'px'
     unit(x * 3/4, 'pt');

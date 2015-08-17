@@ -1,0 +1,25 @@
+{
+  "name": "unit-styl",
+  "version": "0.1.1",
+  "description": "Unit converstion in Stylus made easy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diessica/unit.styl"
+  },
+  "main": "lib/unit-styl.js",
+  "devDependencies": {
+    "stylus": "0.51.x"
+  },
+  "keywords": [
+    "stylus",
+    "mixin",
+    "unit",
+    "styl"
+  ],
+  "author": "Diéssica Gurskas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diessica/unit.styl/issues"
+  },
+  "homepage": "https://github.com/diessica/unit.styl"
+}
