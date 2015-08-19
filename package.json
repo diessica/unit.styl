@@ -1,12 +1,12 @@
 {
   "name": "unit-styl",
-  "version": "0.1.1",
-  "description": "Unit converstion in Stylus made easy",
+  "version": "0.1.2",
+  "description": "Unit conversion in Stylus made easy",
   "repository": {
     "type": "git",
     "url": "https://github.com/diessica/unit.styl"
   },
-  "main": "lib/unit-styl.js",
+  "main": "index.js",
   "devDependencies": {
     "stylus": "0.51.x"
   },
@@ -20,6 +20,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/diessica/unit.styl/issues"
-  },
-  "homepage": "https://github.com/diessica/unit.styl"
+  }
 }

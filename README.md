@@ -1,21 +1,23 @@
-# unit.styl
+# unit.styl [![npm version](https://badge.fury.io/js/unit-styl.svg)](http://badge.fury.io/js/unit-styl)
 > ...makes it easy to convert relative and absolute units. Use the unit of your choice and don't worry about it.
 
-## getting started
+See [docs](#docs).
 
-Just clone or download this project, or...
+## install
 
-### [npm](http://npmjs.com)
-> `--save` or `--save-dev` flags are recommended.
+Just clone this project, or download it via [npm](http://npmjs.com).
 
 ```sh
 $ npm install unit-styl
 ```
+> `--save` or `--save-dev` flags are recommended.
+
+---
 
 #### JavaScript API
 ```javascript
-var stylus = require('stylus');
-var unit   = require('unit-styl');
+var stylus = require('stylus'),
+    unit   = require('unit-styl');
 
 function compile(str) {
   return stylus(str)
@@ -28,7 +30,7 @@ function compile(str) {
 @import 'unit'
 ```
 
-You can also import individual parts, depending on what you need:
+You can also import individual parts:
 ```stylus
 @import 'unit/_angle'
 @import 'unit/_length'
@@ -36,8 +38,13 @@ You can also import individual parts, depending on what you need:
 @import 'unit/_time'
 ```
 
+#### The *just-use-it* way
+```stylus
+@import 'node_modules/unit-styl/unit'
+```
+> Check whether the `node_modules` path is correct.
 
-## usage
+## documentation
 #### → relative ⇔ absolute
 Relative units can be absolute and absolute units can be relative! :-)
 
