@@ -63,7 +63,7 @@ Relative units can be absolute and absolute units can be relative! :-)
 context = 100%;
 
 .foo {
-  width:     rem(960px);      /*  height: 60rem;   */
+  width:     rem(960px);      /*  width: 60rem;   */
   height:    pct(3pt);        /*  height: 25%;     */
   font-size: px(1rem);        /*  font-size: 16px; */
 }  
