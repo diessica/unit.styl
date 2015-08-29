@@ -1,7 +1,6 @@
 # unit.styl [![npm version](https://badge.fury.io/js/unit-styl.svg)](http://badge.fury.io/js/unit-styl)
 > ...makes it easy to convert relative and absolute units. Use the unit of your choice and don't worry about it.
 
-See [docs](#docs).
 
 ## install
 
